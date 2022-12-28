@@ -6,16 +6,21 @@ const Modal = ({show,book}) => {
   const [address,setAddress]=useState('');
   const [email,setEmail]=useState('');
 
+      
+  
+  // Pass data to Spread Sheet
 
+  
 const handleSubmit=(e)=>{
 
   e.preventDefault()
   
-
+  
   const data={
     Name:name,
     Address:address,
-    Email:email
+    Email:email,
+    BookID:book.id
   }
   axios.post('https://sheet.best/api/sheets/f49b010c-b23e-4ff3-b1fc-0dfb7eae22ec',data)
   .then((response)=>{
@@ -29,25 +34,16 @@ const handleSubmit=(e)=>{
 }
 
 
-
-
-
    if(!show){
     return null;
    }
-   //console.log(book)
+   
     return (
         <div>
 
 
       {/* Confirm Modal  */}
- {/*
- language
- categories
-
- */}
-
-
+ 
 <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog  modal-dialog-scrollable">
     <div className="modal-content bg-black text-white border border-2 border-white">
@@ -62,6 +58,10 @@ const handleSubmit=(e)=>{
           <h3 className="modal-title" id="exampleModalLabel"><span className='fs-5'>Language:</span>{book.volumeInfo.language}</h3>
           
         </div>
+
+        {/* Get all input value */}
+
+
         <div className="modal-footer">
               <form className="row gy-3 form-group" onSubmit={handleSubmit}>
                     <div className="col-12">
