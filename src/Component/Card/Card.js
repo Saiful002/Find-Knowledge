@@ -16,7 +16,7 @@ const [bookItem,setItem]=useState();
             books && books.map((book)=>{
                 return(
 
-            <div className="col-4" >
+            <div className="col-12 col-md-6 col-xl-4" >
     <div className="card h-100 p-3 bg-black text-white border border-2 border-white">
       <img src={book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail} style={{height:"500px"}} className="card-img-top img-fluid" alt="..."/>
       <div className="card-body">
